@@ -15,8 +15,9 @@
     "dist": "npm run build && npm run package"
   },
   "dependencies": {
+    "superagent": "^3.8.1",
     "vue": "^2.5.2",
-    "superagent": "^3.8.1"
+    "vuetify": "^0.17.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

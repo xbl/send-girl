@@ -1,24 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <MainPage/>
   </div>
 </template>
 
 <script>
-import request from 'superagent/superagent';
-import HelloWorld from './components/HelloWorld';
+import MainPage from './components/MainPage';
 
-const agent = request.agent();
-agent.get('http://www.baidu.com')
-  .end((err, res) => {
-    /* eslint-disable no-console */
-    console.log(res);
-  });
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    MainPage,
   },
 };
 </script>
@@ -30,6 +22,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+* {
+  text-transform: none !important;
 }
 </style>
