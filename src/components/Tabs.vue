@@ -43,6 +43,7 @@
               <v-icon>more_vert</v-icon>
             </v-btn>
           </v-toolbar>
+          <Editor :mode="i.mode" :value="i.responseText" :read-only="true"></Editor>
           <v-card-text>{{ i.name }}</v-card-text>
         </v-card>
       </v-tabs-content>
@@ -51,20 +52,21 @@
 </template>
 <script>
 import request from 'superagent/superagent';
+import Editor from './Editor';
+import { formatCode } from '../util/index';
 
 export default {
+  components: {
+    Editor,
+  },
   data() {
     return {
       text: 'Welcome to Your Vue.js App!',
       tabs: [{
         name: 'New Tab1',
         method: 'GET',
-      }, {
-        name: 'New Tab2',
-        method: 'GET',
-      }, {
-        name: 'New Tab3',
-        method: 'GET',
+        mode: '',
+        responseText: '',
       }],
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
     };
@@ -76,6 +78,9 @@ export default {
         .end((err, res) => {
           /* eslint-disable no-console */
           console.log(res);
+          item.responseText = res.text;
+          item.mode = res.type;
+          item.responseText = formatCode(res.text, res.type);
         });
     },
   },

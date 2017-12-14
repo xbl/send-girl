@@ -33,7 +33,7 @@
 
     <v-content>
       <v-container fluid fill-height>
-        <v-layout>
+        <v-layout class="full-width">
           <tabs></tabs>
         </v-layout>
       </v-container>
@@ -69,3 +69,7 @@ export default {
   },
 };
 </script>
+
+<style>
+.full-width{ width: 100%; }
+</style>
