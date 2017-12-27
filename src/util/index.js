@@ -5,7 +5,7 @@ export const formatCode = (codeStr, reponseType) => {
   const ext = mime.getExtension(reponseType);
   switch (ext) {
     case 'html':
-      return html(codeStr, { indent_size: 2 });
+      return html(codeStr, { indent_size: 2, max_preserve_newlines: -1 });
     case 'css':
       return css(codeStr, { indent_size: 2 });
     case 'json':
